@@ -1,0 +1,26 @@
+.AnswerOptionList {
+    background: #303030;
+    padding-left: 0;
+    list-style: none;
+    margin-left: -15px;
+    border-radius: 5px;
+    border: 1px solid #555555;
+}
+
+.AnswerOption {
+    padding: 15px;
+    border-top: 1px solid #555555;
+}
+
+.AnswerOption:first-child {
+    border: none;
+}
+
+.ListItemMarker {
+    margin-right: 15px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #444444;
+    border-radius: 50%;
+}
