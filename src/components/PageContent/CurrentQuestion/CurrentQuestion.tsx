@@ -3,7 +3,7 @@ import Bird from './../../../assets/images/bird.jpg'
 import styles from './CurrentQuestion.module.css'
 
 const CurrentQuestion: React.FC = () => {
-    return <div className={`container ${styles.CurrentQuestionContainer}`}>
+    return <div className={`container page-section ${styles.CurrentQuestionContainer}`}>
         <div className='row'>
             <div className='col col-3'>
                 <img className='bird-image' src={Bird} alt='birdImage'/>

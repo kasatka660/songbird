@@ -1,10 +1,9 @@
 .AnswerOptionList {
-    background: #303030;
     padding-left: 0;
     list-style: none;
-    margin-left: -15px;
     border-radius: 5px;
     border: 1px solid #555555;
+    background: #303030;
 }
 
 .AnswerOption {

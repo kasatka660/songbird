@@ -1,0 +1,6 @@
+.BirdText {
+    margin-top: 25px;
+    height: 94px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
