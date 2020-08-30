@@ -1,11 +1,3 @@
-.AnswerOptionList {
-    padding-left: 0;
-    list-style: none;
-    border-radius: 5px;
-    border: 1px solid #555555;
-    background: #303030;
-}
-
 .AnswerOption {
     padding: 15px;
     border-top: 1px solid #555555;
@@ -14,6 +6,7 @@
 .AnswerOption:first-child {
     border: none;
 }
+
 
 .ListItemMarker {
     margin-right: 15px;

@@ -1,0 +1,19 @@
+.AnswerOptionList {
+    padding-left: 0;
+    list-style: none;
+    border-radius: 5px;
+    border: 1px solid #555555;
+    background: #303030;
+    cursor: pointer;
+}
+
+.ListItemMarkerCorrect {
+    background: green !important;
+}
+
+.ListItemMarkerIncorrect {
+    background: red !important;
+}
+
+
+

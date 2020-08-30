@@ -28,4 +28,6 @@ header {
 
 .bird-image {
   border-radius: 10px;
+  width: 200px;
+  max-height: 150px;
 }
