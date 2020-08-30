@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import PageContent from "./components/PageContent/PageContent";
+import CategoryList from "./assets/const/CategoryList";
 
-function App() {
+const App: React.FC = () => {
+
   return (
     <div className="App">
         <div className='container'>
-            <Header/>
-            <PageContent/>
+          <PageContent/>
         </div>
 
     </div>

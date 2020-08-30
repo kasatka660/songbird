@@ -2,28 +2,35 @@ import React from "react";
 import Bird from "../../../assets/images/bird.jpg";
 import styles from "./BirdInfo.module.css"
 
-const BirdInfo: React.FC = () => {
-  return <section className='container page-section'>
-          <div className='row'>
-            <div className='col col-5'>
-              <img className='bird-image' src={Bird}/>
+const BirdInfo: React.FC<{nextButtonActive: boolean, currentQuestion: any}> = ({nextButtonActive, currentQuestion}) => {
+  return <div className='container page-section'>
+            { !nextButtonActive &&
+            <div className='row'>
+              <div className='col col-5'>
+                <img className='bird-image' src={Bird} alt='unknown bird image'/>
+              </div>
+              <div className='col col-7'>
+                <span>Послушате плеер.</span><br/>
+                <span>Выберите пицу из списка.</span>
+              </div>
             </div>
-            <div className='col col-7'>
-                <h4>Ворон</h4>
-                <span>Corvus corax</span>
+            }
+           { nextButtonActive &&
+            <div className='row'>
+                <div className='col col-5'>
+                  <img className='bird-image' src={currentQuestion.image} alt='bird image'/>
+                </div>
+                <div className='col col-7'>
+                  <h4>{currentQuestion.name}</h4>
+                  <span>{currentQuestion.species}</span>
+                </div>
+                <div className='col col-12'>
+                  <p className={styles.BirdText}>{currentQuestion.description} </p>
+                </div>
             </div>
-            <div className='col col-12'>
-              <p className={styles.BirdText}>
-                Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день,
-                когда черные вороны улетят от Тауэра, монархия рухнет.
-                Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день,
-                когда черные вороны улетят от Тауэра, монархия рухнет.
-              </p>
-            </div>
-          </div>
-        </section>;
+            }
+
+        </div>;
 }
 
 

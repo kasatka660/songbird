@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './GameScore.module.css'
 
-const GameScore: React.FC<{score: number}> = ({score}) => {
-    return <span className={styles.GameScore}>Score: {score}</span>;
+const GameScore: React.FC<{gameScore: number}> = ({gameScore}) => {
+    return <span className={styles.GameScore}>Score: {gameScore}</span>;
 }
+
+
 
 
 export default GameScore;

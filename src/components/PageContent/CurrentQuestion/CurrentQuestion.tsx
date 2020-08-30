@@ -2,7 +2,8 @@ import React from "react";
 import Bird from './../../../assets/images/bird.jpg'
 import styles from './CurrentQuestion.module.css'
 
-const CurrentQuestion: React.FC = () => {
+const CurrentQuestion: React.FC<{currentQuestion: any}> = ({currentQuestion}) => {
+
     return <div className={`container page-section ${styles.CurrentQuestionContainer}`}>
         <div className='row'>
             <div className='col col-3'>
@@ -12,7 +13,9 @@ const CurrentQuestion: React.FC = () => {
                 <div className={styles.HiddenName}>
                     <span className='text-color'>******</span>
                 </div>
-
+                <audio controls>
+                    <source src={currentQuestion.audio} type="audio/ogg"/>
+                </audio>
             </div>
         </div>
     </div>;
