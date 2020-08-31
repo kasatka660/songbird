@@ -4,3 +4,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+.BirdLatinName {
+    display: inline-block;
+    padding: 5px 0;
+    border: 1px solid rgb(85, 85, 85);
+    border-right: none;
+    border-left: none;
+}
