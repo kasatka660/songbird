@@ -1,6 +1,7 @@
 import React from "react";
 import Bird from './../../../assets/images/bird.jpg'
-import styles from './CurrentQuestion.module.css'
+import styles from './CurrentQuestion.module.css';
+import AudioPlayer from "../../common/AudioPlayer/AudioPlayer";
 
 const CurrentQuestion: React.FC<{currentQuestion: any}> = ({currentQuestion}) => {
 
@@ -13,9 +14,7 @@ const CurrentQuestion: React.FC<{currentQuestion: any}> = ({currentQuestion}) =>
                 <div className={styles.HiddenName}>
                     <span className='text-color'>******</span>
                 </div>
-                <audio controls hidden>
-                    <source src={currentQuestion.audio} type="audio/ogg"/>
-                </audio>
+                <AudioPlayer audioSrc={currentQuestion.audio}/>
             </div>
         </div>
     </div>;
