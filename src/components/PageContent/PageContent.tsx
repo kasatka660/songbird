@@ -42,9 +42,11 @@ const PageContent: React.FC = () => {
 
   const restartGame = () => {
     setCategory(CategoryList[0].id);
-    setCurrentQuestion(getRandomQuestion(currentCategory));
+    setCurrentQuestion(getRandomQuestion(CategoryList[0].id));
+    setNextButtonToActive(false);
     setScore(0);
     setGameToFinish(false);
+    setAudioState(false);
   };
 
   if (gameFinished) {
