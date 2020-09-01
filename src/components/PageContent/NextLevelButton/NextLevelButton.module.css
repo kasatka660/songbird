@@ -1,18 +1,17 @@
 .NextLevelButton {
-    border-radius: 5px;
-    background: var(--main-primary-color);
-    color: var(--text-color);
-    border: none;
-    padding: 5px;
-    width: 100%;
-    margin-bottom: 20px;
+  border-radius: 5px;
+  background: var(--main-primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .NextLevelButton:focus {
-    outline: none;
+  outline: none;
 }
 
 .NextLevelButtonActive {
-    background: var(--theme-light-color);
+  background: var(--theme-light-color);
 }
-
