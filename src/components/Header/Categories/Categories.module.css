@@ -1,0 +1,28 @@
+.CategoriesList {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .CategoriesList {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.CategoryItem {
+  flex: auto;
+  text-align: center;
+  list-style: none;
+  color: var(--text-color);
+  padding: 5px 0;
+  background: var(--theme-primary-color);
+}
+
+.ActiveCategoryItem {
+  background: var(--theme-light-color);
+}

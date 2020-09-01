@@ -1,0 +1,27 @@
+.BirdText {
+  margin-top: 25px;
+  height: 94px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.BirdLatinName {
+  display: inline-block;
+  padding: 5px 0;
+  border: 1px solid rgb(85, 85, 85);
+  border-right: none;
+  border-left: none;
+}
+
+.BirdInfoSection {
+  border-radius: 5px;
+  border: 1px solid var(--main-dark-color);
+  background: var(--main-primary-color);
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .BirdInfoSection {
+    height: 322px;
+  }
+}
