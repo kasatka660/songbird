@@ -11,13 +11,9 @@ const AudioPlayer: React.FC<{ audioSrc: string; stopAudio: boolean }> = ({
   const [audioDuration, setAudioDuration] = useState<number>(0);
   const [currentAudioTime, setCurrentAudioTime] = useState<number>(0);
   useEffect(() => {
-    if (audio) {
-      audio.pause();
-    }
     const newAudio = new Audio(audioSrc);
     setAudio(newAudio);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [audioSrc]);
 
   useEffect(() => {
     return () => {
