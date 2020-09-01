@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from './AudioPlayer.module.css'
 import convertToMMSS from "../../../utils/timeConverter";
 
-const AudioPlayer: React.FC<{ audioSrc: string }> = ({audioSrc}) => {
+const AudioPlayer: React.FC<{ audioSrc: string, stopAudio: boolean }> = ({audioSrc, stopAudio}) => {
   const [audio] = useState(new Audio(audioSrc));
   const [audioPlaying, setAudioState] = useState<boolean>(false);
   const [audioDuration, setAudioDuration] = useState<number>(0);
@@ -16,13 +16,20 @@ const AudioPlayer: React.FC<{ audioSrc: string }> = ({audioSrc}) => {
       setAudioState(true);
     }
   }
-
-    if (audio) {
-      audio.onloadedmetadata = () => {
-        setAudioDuration((audio.duration));
-        audio.ontimeupdate = () => setCurrentAudioTime(audio.currentTime);
-      };
+  useEffect(()=> {
+    if (stopAudio) {
+      audio.currentTime = 0
+      audio.pause();
+      setAudioState(false);
     }
+  }, [stopAudio])
+
+  if (audio) {
+    audio.onloadedmetadata = () => {
+      setAudioDuration((audio.duration));
+      audio.ontimeupdate = () => setCurrentAudioTime(audio.currentTime);
+    };
+  }
 
   const progress = (Math.round(Number(currentAudioTime) / Number(audioDuration)*100));
 
