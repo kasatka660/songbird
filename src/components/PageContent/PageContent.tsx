@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import CurrentQuestion from "./CurrentQuestion/CurrentQuestion";
 import AnswerOptions from "./AnswerOptions/AnswerOptions";
 import BirdInfo from "./BirdInfo/BirdInfo";
@@ -9,59 +9,81 @@ import CategoryList from "../../assets/const/CategoryList";
 import GameOver from "./GameOver/GameOver";
 
 const PageContent: React.FC = () => {
-
-  const getRandomQuestion = () => BirdsData[currentCategory][ Math.floor(Math.random() * BirdsData[currentCategory].length)];
+  const getRandomQuestion = (category: number) =>
+    BirdsData[category][Math.floor(Math.random() * BirdsData[category].length)];
 
   const [currentCategory, setCategory] = useState<number>(CategoryList[0].id);
   const [gameScore, setScore] = useState<number>(0);
   const [nextButtonActive, setNextButtonToActive] = useState<boolean>(false);
-  const [currentQuestion, setCurrentQuestion] = useState(getRandomQuestion());
+  const [currentQuestion, setCurrentQuestion] = useState(
+    getRandomQuestion(currentCategory)
+  );
   const [gameFinished, setGameToFinish] = useState<boolean>(false);
-  const [stopAudio, setAudioState] = useState<boolean>(false)
+  const [stopAudio, setAudioState] = useState<boolean>(false);
 
   const updateScore: (attemptCount: number) => void = (attemptCount) => {
     setAudioState(true);
     setNextButtonToActive(true);
-    setScore(gameScore+(5-attemptCount));
-  }
+    setScore(gameScore + (5 - attemptCount));
+  };
 
   const goToNextQuestion = () => {
-    if (currentCategory < BirdsData.length-1) {
-      setCategory(currentCategory+1);
-      setCurrentQuestion(getRandomQuestion());
+    setAudioState(true);
+    if (currentCategory < BirdsData.length - 1) {
+      setCategory(currentCategory + 1);
+      setCurrentQuestion(getRandomQuestion(currentCategory + 1));
       setNextButtonToActive(false);
+      setAudioState(false);
     } else {
       setGameToFinish(true);
+      setAudioState(true);
     }
-  }
+  };
 
   const restartGame = () => {
     setCategory(CategoryList[0].id);
-    setCurrentQuestion(getRandomQuestion());
+    setCurrentQuestion(getRandomQuestion(currentCategory));
     setScore(0);
     setGameToFinish(false);
+  };
+
+  if (gameFinished) {
+    return (
+      <>
+        <Header currentCategory={currentCategory} gameScore={gameScore} />
+        <GameOver restartGame={restartGame} finalScore={gameScore} />
+      </>
+    );
   }
-
- if (gameFinished) {
-    return <>
-      <Header currentCategory={currentCategory} gameScore={gameScore}/>
-      <GameOver restartGame={restartGame} finalScore={gameScore} />
+  return (
+    <>
+      <Header currentCategory={currentCategory} gameScore={gameScore} />
+      <CurrentQuestion
+        currentQuestion={currentQuestion}
+        stopAudio={stopAudio}
+      />
+      <div className="row">
+        <div className="col-12 col-md-6">
+          <AnswerOptions
+            currentCategory={currentCategory}
+            currentQuestion={currentQuestion}
+            updateScore={updateScore}
+          />
+        </div>
+        <div className="col-12 col-md-6">
+          <BirdInfo
+            nextButtonActive={nextButtonActive}
+            currentQuestion={currentQuestion}
+            stopAudio={stopAudio}
+          />
+        </div>
+      </div>
+      <NextLevelButton
+        nextButtonActive={nextButtonActive}
+        goToNextQuestion={goToNextQuestion}
+      />
     </>
- }
-return <>
-            <Header currentCategory={currentCategory} gameScore={gameScore}/>
-            <CurrentQuestion currentQuestion={currentQuestion} stopAudio={stopAudio} />
-            <div className='row'>
-              <div className='col-12 col-md-6'>
-                <AnswerOptions currentCategory={currentCategory} currentQuestion={currentQuestion} updateScore={updateScore} />
-              </div>
-              <div className='col-12 col-md-6'>
-                <BirdInfo nextButtonActive={nextButtonActive} currentQuestion={currentQuestion} />
-              </div>
-            </div>
-            <NextLevelButton nextButtonActive={nextButtonActive} goToNextQuestion={goToNextQuestion}/>
-          </>
-
-}
+  );
+};
 
 export default PageContent;

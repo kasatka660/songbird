@@ -1,9 +1,11 @@
 :root {
-    --theme-light-color: #00bc8c;
-    --theme-primary-color: #008966;
-    --theme-dark-color: #007c5d;
-    --main-light-color: #222222;
-    --main-primary-color: #303030;
-    --main-dark-color: #555555;
-    --text-color: #ffffff;
+  --theme-light-color: #00bc8c;
+  --theme-primary-color: #008966;
+  --theme-dark-color: #007c5d;
+  --main-light-color: #222222;
+  --main-primary-color: #303030;
+  --main-dark-color: #555555;
+  --text-color: #ffffff;
+  --player-color: #808080;
+  --player-attr-color: #d3d3d3;
 }
