@@ -24,17 +24,16 @@ h2 {
   font-weight: 300;
 }
 
-.page-section {
-  border-radius: 5px;
-  border: 1px solid var(--main-dark-color);
-  background: var(--main-primary-color);
-  padding: 15px;
-  height: 322px;
+@media (max-width: 768px) {
+  h2 {
+    font-size: 32px;
+    font-weight: 300;
+  }
 }
 
 
 .bird-image {
   border-radius: 10px;
   width: 200px;
-  max-height: 150px;
+  max-width: 100%;
 }

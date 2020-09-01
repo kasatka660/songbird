@@ -7,6 +7,13 @@
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .CategoriesList {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .CategoryItem {
     flex: auto;
     text-align: center;

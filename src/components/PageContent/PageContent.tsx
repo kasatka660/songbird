@@ -17,8 +17,10 @@ const PageContent: React.FC = () => {
   const [nextButtonActive, setNextButtonToActive] = useState<boolean>(false);
   const [currentQuestion, setCurrentQuestion] = useState(getRandomQuestion());
   const [gameFinished, setGameToFinish] = useState<boolean>(false);
+  const [stopAudio, setAudioState] = useState<boolean>(false)
 
   const updateScore: (attemptCount: number) => void = (attemptCount) => {
+    setAudioState(true);
     setNextButtonToActive(true);
     setScore(gameScore+(5-attemptCount));
   }
@@ -48,12 +50,12 @@ const PageContent: React.FC = () => {
  }
 return <>
             <Header currentCategory={currentCategory} gameScore={gameScore}/>
-            <CurrentQuestion currentQuestion={currentQuestion} />
+            <CurrentQuestion currentQuestion={currentQuestion} stopAudio={stopAudio} />
             <div className='row'>
-              <div className='col col-6'>
+              <div className='col-12 col-md-6'>
                 <AnswerOptions currentCategory={currentCategory} currentQuestion={currentQuestion} updateScore={updateScore} />
               </div>
-              <div className='col col-6'>
+              <div className='col-12 col-md-6'>
                 <BirdInfo nextButtonActive={nextButtonActive} currentQuestion={currentQuestion} />
               </div>
             </div>
