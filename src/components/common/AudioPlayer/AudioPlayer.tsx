@@ -16,7 +16,8 @@ const AudioPlayer: React.FC<{ audioSrc: string; stopAudio: boolean }> = ({
     }
     const newAudio = new Audio(audioSrc);
     setAudio(newAudio);
-  }, [audioSrc]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     return () => {
